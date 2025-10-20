@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 // (demo) reminder: do "npm install --save @supabase/supabase-js"
-import { createClient } from "@supabase/supabase-js";
-
-// (demo) Make sure to do .env for these
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
 
 export default function Signup(){
     const navigate = useNavigate();
