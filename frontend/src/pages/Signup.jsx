@@ -119,7 +119,7 @@ export default function Signup(){
     }
 
     return(
-        <div className="flex min-h-screen items-center justify-center bg-[#fefbfb] font-serif text-[#213547] px-4 py-12">
+        <div className="flex min-h-screen items-center justify-center bg-[#fefbfb] font-serif text-[#213547] px-4 py-4">
             <div className="w-full max-w-md rounded-2xl border border-[#eadede] bg-white/80 p-10 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
                 <h2 className="mb-2 text-center text-3xl font-bold leading-tight">Sign Up to track your{" "}  
                 <span className="rounded-md bg-[#e8caca]/60 px-2">Journaling</span></h2>
@@ -131,36 +131,38 @@ export default function Signup(){
                     </svg>
                 </div>
             <SignupAlert />
-            <form onSubmit={signupUser} className="space-y-4">
+            <form onSubmit={signupUser} className="space-y-3">
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 font-serif sm:w-1/3 sm:text-right">Email</label>
+                <div className="flex flex-col space-y-1">
+                    <label htmlFor="email" className="flex flex-col text-sm font-semibold">Email</label>
                     <input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="janedoe@example.com" disabled={loading}
                     className="mt-1 rounded-md border border-neutral-300 bg-neutral-100 px-3 py-2 text-[15px] outline-none focus:ring-1 focus:ring-[#b87d7d] placeholder-gray-500">
                     </input>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 font-serif sm:w-1/3 sm:text-right">Password</label>
+                <div className="flex flex-col space-y-1">
+                    <label htmlFor="password" className="flex flex-col text-sm font-semibold">Password</label>
                     <input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="pass123" disabled={loading}
                     className="mt-1 rounded-md border border-neutral-300 bg-neutral-100 px-3 py-2 text-[15px] outline-none focus:ring-1 focus:ring-[#b87d7d] placeholder-gray-500">
                     </input>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-                    <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 font-serif sm:w-1/3 sm:text-right">Confirm Password</label>
+                <div className="flex flex-col space-y-1">
+                    <label htmlFor="confirmPassword" className="flex flex-col text-sm font-semibold">Confirm Password</label>
                     <input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="pass123" disabled={loading}
                     className="mt-1 rounded-md border border-neutral-300 bg-neutral-100 px-3 py-2 text-[15px] outline-none focus:ring-1 focus:ring-[#b87d7d] placeholder-gray-500">
                     </input>
                 </div>
-                
-            <button type="submit"  disabled={loading}
-            className="mt-2 w-full rounded-md bg-[#b87d7d]/90 py-2 font-bold text-white transition hover:bg-[#a06d6d] disabled:opacity-60">
-                {loading ? "..." : 'Create Account'}
-            </button>
+
+                <div className="pt-2">
+                <button type="submit"  disabled={loading}
+                    className="mt-2 w-full rounded-md bg-[#b87d7d]/90 py-2 font-bold text-white transition hover:bg-[#a06d6d] disabled:opacity-60">
+                    {loading ? "..." : 'Create Account'}
+                    </button> 
+                </div>  
             </form>
-            <p className="mt-5 text-center text-sm">Nourish You. Start your journal today.</p>
-            <p className="mt-6 text-center text-sm text-gray-600">Already have an account? 
+            <p className="mt-3 text-center text-sm">Nourish You. Start your journal today.</p>
+            <p className="mt-2 text-center text-sm text-gray-600">Already have an account? 
                 <Link to="/login" className="font-semibold text-[#b87d7d] hover:underline"> Login</Link></p>
             </div>
         </div>
