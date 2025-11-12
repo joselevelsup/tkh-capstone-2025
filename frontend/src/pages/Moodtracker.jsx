@@ -8,7 +8,7 @@ import SadImg from "./images/Sad.png";
 import RageImg from "./images/Rage.png";
 import NervousImg from "./images/Nervous.png";
 import IndiffImg from "./images/Indifferent.png";
-import "./moodtracker.css";
+import "../moodtracker.css";
 
 export default function Moodtracker() {
   const moods = ["happy", "sad", "angry", "excited", "rage", "confused", "nervous", "indifferent"];
@@ -73,10 +73,13 @@ export default function Moodtracker() {
     loadPastMoods();
   }, [saveMessage]); // reload when a new entry is saved
 
-  // Update body color/theme
+  
   useEffect(() => {
-    document.body.classList.remove(...moods);
-    if (selectedMood) document.body.classList.add(selectedMood);
+    const moodBody = document.querySelector('.mood-body');
+    if(moodBody){
+    moodBody.classList.remove(...moods);
+    if (selectedMood) moodBody.classList.add(selectedMood);
+    }
   }, [selectedMood]);
 
  const handleSave = async () => {
@@ -135,10 +138,11 @@ const viewMoodFile = async (fileName) => {
     const json = JSON.parse(text);
     console.log(json);
   }
-};
+ };
 
 
   return (
+    <div className="mood-body">
     <div className="container">
       <h1>Mood Tracker</h1>
       <p>Track your daily mood</p>
@@ -192,6 +196,7 @@ const viewMoodFile = async (fileName) => {
           </ul>
         )}
       </div>
+    </div>
     </div>
   );
 }
