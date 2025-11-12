@@ -1,10 +1,12 @@
 import supabase from "../supabaseClient"
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from "../components/AuthContext";
 
 export default function Home (){
-    const navigate = useNavigate();
-    const [userData, setUserData] = useState([]);
+  const { user, isLoading } = useAuth();
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     getuserData();
@@ -26,36 +28,46 @@ export default function Home (){
     navigate("/journal")
   }
 
-  //Different welcome message depending on logged in or not??
-  async function welcomeMessage(){
-    const { data: {user} } = await supabase.auth.getUser();
-    //if user is logged in
-    if (user) {
-      <div>
-        <h1>Welcome back!</h1>
-        <h3>How are you feeling today?</h3>
-      </div>
-    } else {
-      <div>
-        <h1>Welcome!</h1>
-        <h3>Sign up or log in to get started.</h3>
-      </div>
-    }
+  //link to mood tracker when that is set up
+  async function navigateMoodTracker(){
+    navigate("/moodtracker")
   }
 
-  //link to mood tracker when that is set up
+  if(isLoading){
+      return(
+        <div className="status-container">
+          <p>Loading...</p>
+        </div>
+      )
+  }
+
+  
 
   //function for displaying most recent journal entry as preview?
 
   //Inspirational Quote API?
 
     return(
-        <>
+      <>
         hewwo home
-        <p>Nourish You. Start your journal today.</p>
-        <h1>Welcome!</h1>
-        <h3>How are you feeling?</h3>
-        <button onClick={navigateNewEntry}>Start New Entry</button>
-        </>
+      <div className="home-content">
+        {user ? (
+          <div>
+            <p>Welcome Back!</p>
+            <h3>How are you feeling?</h3>
+            <button onClick={navigateNewEntry}>Start New Entry</button>
+            <button onClick={navigateMoodTracker}>Mood tracker</button>
+          </div>
+        ) : (
+          <div>
+            <p>Welcome!</p>
+            <p>Already have an account? 
+              <Link to="/Login">Login</Link></p>
+            <p>Would you like to create an account?
+              <Link to="/Signup">Signup</Link></p>
+        </div>
+        )}
+      </div>
+      </>
     )
 }
