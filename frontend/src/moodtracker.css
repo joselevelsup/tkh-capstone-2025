@@ -1,10 +1,10 @@
-body {
+.mood-body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   margin: 0;
   padding: 0;
 
-  height: 100vh;
+  
 
   display: flex;
   justify-content: center;
@@ -138,38 +138,38 @@ h2 {
   display: none;
 }
 
-body.happy {
-  background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+.mood-body.happy {
+  background-image: linear-gradient(135deg, #fbc2eb, #f0ef97);
 }
 
-body.sad {
-  background-image: linear-gradient(135deg, #74ebd5, #acb6e5);
+.mood-body.sad {
+  background-image: linear-gradient(135deg, #31ddbe, #5975f3);
 }
 
-body.angry {
-  background-image: linear-gradient(135deg, #ff758c, #ff7eb3);
+.mood-body.angry {
+  background-image: linear-gradient(135deg, #c31936, #ff7eb3);
 }
 
-body.tired {
-  background-image: linear-gradient(135deg, #757f9a, #d7dde8);
+.mood-body.tired {
+  background-image: linear-gradient(135deg, #5273cf, #d7dde8);
 }
 
-body.excited {
+.mood-body.excited {
   background-image: linear-gradient(135deg, #fce38a, #f38181);
 }
 
-body.rage {
+.mood-body.rage {
   background-image: linear-gradient(135deg, #b6982b, #dc3f3f);
 }
 
-body.indifferent {
-  background-image: linear-gradient(135deg, #ff9ff2, #e25d7e);
+.mood-body.indifferent {
+  background-image: linear-gradient(135deg, #f5d4f1, #e25d7e);
 }
 
-body.nervous {
-  background-image: linear-gradient(135deg, #8ac697, #2b94a9);
+.mood-body.nervous {
+  background-image: linear-gradient(135deg, #8ac697, #d87613);
 }
 
-body.confused {
-  background-image: linear-gradient(135deg, #93aff6, #3446be);
+.mood-body.confused {
+  background-image: linear-gradient(135deg, #93aff6, #2034b5);
 }
