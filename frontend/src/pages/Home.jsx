@@ -9,12 +9,20 @@ export default function Home (){
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    getuserData();
-  }, []);
+    //user logged in
+    if(user && !isLoading){
+      getuserData(user.id);
+    }
+
+    //when user logs out
+    if(!user && !isLoading){
+      setUserData(null);
+    }
+  }, [isLoading, user]);
 
   //(Supabase setup)
-  async function getuserData() {
-    const { data, error } = await supabase.from("user_profiles").select();
+  async function getuserData(userId) {
+    const { data, error } = await supabase.from("user_profiles").select().eq('id', userId).single();
     if (error) {
         console.log(error);
     }

@@ -4,8 +4,8 @@ import supabase from "../supabaseClient";
 const AuthContext = createContext();
 
 export default function AuthProvider({ children }){
-    const [user, setUser] = useState();
-    const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() =>{
         //Initial check for current session
@@ -17,7 +17,7 @@ export default function AuthProvider({ children }){
         // Listener set up
         const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
         setUser(session?.user ?? null);
-        setIsLoading(false);
+
         });
 
         // Clean up the listener on unmount
