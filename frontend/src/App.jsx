@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Nav.jsx";
+import AuthProvider from "./components/AuthContext.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Journal from "./pages/Journal.jsx";
@@ -13,8 +14,9 @@ import MeditationTimerWidget from "./components/MeditationTimerWidget.jsx";
 function App() {
   return (
     <div>
+    <AuthProvider>
       <BrowserRouter>
-        <Navbar />
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -26,8 +28,9 @@ function App() {
           <Route path="/moodtracker" element={<Moodtracker />} />
         </Routes>
 
-        <MeditationTimerWidget />
+      <MeditationTimerWidget />  
       </BrowserRouter>
+    </AuthProvider>
     </div>
   );
 }
