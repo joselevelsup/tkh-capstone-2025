@@ -27,7 +27,7 @@ export default function Login() {
     }
 
     setMsg("Success! You’re in.");
-    setTimeout(() => navigate("/home"), 1200);
+    setTimeout(() => navigate("/"), 1200);
   }
 
   async function handleForgot() {

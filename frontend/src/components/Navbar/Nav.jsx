@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="bg-[#fefbfb] border-b border-[#e7d9d9] text-[#213547] font-serif">
       <ul className="flex justify-center gap-10 py-4 text-lg font-semibold">
         <li>
-          <Link to="/home" className="hover:text-[#b87d7d] transition">
+          <Link to="/" className="hover:text-[#b87d7d] transition">
             Home
           </Link>
         </li>
