@@ -9,7 +9,7 @@ import Shop from './pages/Shop.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import Moodtracker from './pages/Moodtracker.jsx';
-
+import MeditationTimerWidget from "./components/MeditationTimerWidget.jsx";
 
 function App() {
   return (
@@ -27,12 +27,12 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/moodtracker' element={<Moodtracker />} />
         </Routes>
+
+      <MeditationTimerWidget />  
       </BrowserRouter>
     </AuthProvider>
-    
     </div>
   );
 }
-
 
 export default App;
