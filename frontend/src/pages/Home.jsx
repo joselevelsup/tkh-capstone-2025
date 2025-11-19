@@ -1,11 +1,10 @@
 import supabase from "../supabaseClient"
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from "../components/AuthContext";
 
 export default function Home (){
   const { user, isLoading } = useAuth();
-  const navigate = useNavigate();
   const [userData, setUserData] = useState([null]);
   const [recentEntry, setRecentEntry] = useState(null);
   const [previewText, setPreviewText] = useState("Loading entry content...");
@@ -60,17 +59,6 @@ export default function Home (){
     setUserData(data);
   }
   console.log('The set user data is: ',userData);
-
-  async function handleSignOut(){
-    const { error } = await supabase.auth.signOut();
-
-    if (error){
-      console.log(error);
-    }else{
-      console.log("successful sign out")
-    }
-  }
-
 
   if(isLoading){
       return(
@@ -129,12 +117,6 @@ export default function Home (){
                         </p>
                     )}
                 </div>
-                <button 
-                    onClick={handleSignOut}
-                    className="mt-4 border border-red-500 bg-red-100 text-red-700 px-4 py-2 rounded-md hover:bg-red-200 transition"
-                >
-                    Temporary Log Out
-                </button> 
             </div>
         ) : (
           <div className="flex flex-col min-h-screen gap-3 items-center bg-[#fdebebff] font-serif text-[#213547] px-4 py-4">
