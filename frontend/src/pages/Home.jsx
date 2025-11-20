@@ -96,8 +96,6 @@ export default function Home (){
             <h1 className="text-sm !m-0 p-0 font-semibold">Welcome Back!</h1>
             <h2 className="text-lg !m-0 p-0 font-semibold">How are you feeling?</h2>
             <div className="flex flex-row gap-6 font-semibold">
-              <Link to="/journal" className="border border-[#7b886f] bg-[#b4dc7f]/80 px-4 py-1 rounded-md hover:bg-[#ffa0ac]/80 transition">
-              Start New Entry</Link>
               <Link to="moodtracker" className="border border-[#7b886f] bg-[#b4dc7f]/80 px-4 py-1 rounded-md hover:bg-[#ffa0ac]/80 transition">
               Mood tracker</Link>
             </div> 
@@ -110,7 +108,7 @@ export default function Home (){
                                 {new Date(recentEntry.created_at).toLocaleDateString()}
                             </p>
                             <p>{previewText.substring(0, 150)}...</p>
-                            <Link to={`/journal/${recentEntry.id}`}>Read Full Entry</Link>
+                            <Link to={`/journal`} className="font-semibold hover:underline">Read All Entries</Link>
                         </>
                     ) : (
                         // Message if the user is logged in but has no entries yet
