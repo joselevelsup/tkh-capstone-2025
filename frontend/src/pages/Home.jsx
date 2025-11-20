@@ -5,7 +5,7 @@ import { useAuth } from "../components/AuthContext";
 
 export default function Home (){
   const { user, isLoading } = useAuth();
-  const [userData, setUserData] = useState([null]);
+  const [userData, setUserData] = useState(null);
   const [recentEntry, setRecentEntry] = useState(null);
   const [previewText, setPreviewText] = useState("Loading entry content...");
 
@@ -14,7 +14,9 @@ export default function Home (){
       //user logged in
     if(user && !isLoading){
       await getuserData(user.id);
-      await fetchMostRecentEntry(user.id)
+
+      const mostRecentEntry = await fetchMostRecentEntry(user.id)
+      setRecentEntry(mostRecentEntry);
     }
 
     //when user logs out
@@ -32,7 +34,7 @@ export default function Home (){
       async function fetchJournalContent(){
         setPreviewText("Loading entry content...");
         //get object's signed url
-        const { urlData, urlError} = await supabase.storage.from("journal-pages").createSignedUrl(recentEntry.storage_path, 60)
+        const { data: urlData, error: urlError} = await supabase.storage.from("journal-pages").createSignedUrl(recentEntry.storage_path, 60)
 
         if(urlError){
           console.log("Error when getting signed URL:", urlError);
