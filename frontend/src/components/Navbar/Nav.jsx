@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import supabase from "../../supabaseClient";
 
 export default function Navbar() {
   const location = useLocation();
@@ -7,6 +8,21 @@ export default function Navbar() {
 
   // ✅ Don't show navbar on login/signup pages
   if (hideOnAuthPages) return null;
+
+  // Log out function
+  async function logOutUser(){
+    const { error } = await supabase.auth.signOut({scope: 'local'});
+
+    if(error){
+      console.error("Error when logging out:", error)
+    }else{
+      console.log("Successful. Logging out.");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    }
+  }
 
   return (
     <nav className="bg-[#fefbfb] border-b border-[#e7d9d9] text-[#213547] font-serif">
