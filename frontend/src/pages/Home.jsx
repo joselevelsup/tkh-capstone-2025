@@ -5,7 +5,7 @@ import { useAuth } from "../components/AuthContext";
 
 export default function Home (){
   const { user, isLoading } = useAuth();
-  const [userData, setUserData] = useState([null]);
+  const [userData, setUserData] = useState(null);
   const [recentEntry, setRecentEntry] = useState(null);
   const [previewText, setPreviewText] = useState("Loading entry content...");
 
@@ -14,7 +14,9 @@ export default function Home (){
       //user logged in
     if(user && !isLoading){
       await getuserData(user.id);
-      await fetchMostRecentEntry(user.id)
+
+      const mostRecentEntry = await fetchMostRecentEntry(user.id)
+      setRecentEntry(mostRecentEntry);
     }
 
     //when user logs out
@@ -32,7 +34,7 @@ export default function Home (){
       async function fetchJournalContent(){
         setPreviewText("Loading entry content...");
         //get object's signed url
-        const { urlData, urlError} = await supabase.storage.from("journal-pages").createSignedUrl(recentEntry.storage_path, 60)
+        const { data: urlData, error: urlError} = await supabase.storage.from("journal-pages").createSignedUrl(recentEntry.storage_path, 60)
 
         if(urlError){
           console.log("Error when getting signed URL:", urlError);
@@ -94,8 +96,6 @@ export default function Home (){
             <h1 className="text-sm !m-0 p-0 font-semibold">Welcome Back!</h1>
             <h2 className="text-lg !m-0 p-0 font-semibold">How are you feeling?</h2>
             <div className="flex flex-row gap-6 font-semibold">
-              <Link to="/journal" className="border border-[#7b886f] bg-[#b4dc7f]/80 px-4 py-1 rounded-md hover:bg-[#ffa0ac]/80 transition">
-              Start New Entry</Link>
               <Link to="moodtracker" className="border border-[#7b886f] bg-[#b4dc7f]/80 px-4 py-1 rounded-md hover:bg-[#ffa0ac]/80 transition">
               Mood tracker</Link>
             </div> 
@@ -108,7 +108,7 @@ export default function Home (){
                                 {new Date(recentEntry.created_at).toLocaleDateString()}
                             </p>
                             <p>{previewText.substring(0, 150)}...</p>
-                            <Link to={`/journal/${recentEntry.id}`}>Read Full Entry</Link>
+                            <Link to={`/journal`} className="font-semibold hover:underline">Read All Entries</Link>
                         </>
                     ) : (
                         // Message if the user is logged in but has no entries yet
