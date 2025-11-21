@@ -1,16 +1,75 @@
-# React + Vite
+# Color Me Happy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Color Me Happy is a mindful journaling application with built-in mood tracking and a meditation timer 🧘🏽‍♀️. Users can journal as guests using local browser storage or create accounts with Supabase authentication.  
 
-Currently, two official plugins are available:
+Built as part of The Knowledge House 2025 Capstone.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Rich text journaling (headings, lists, bold, quotes, links)
+- Mood selection with each entry
+- Meditation timer with presets and optional audio
+- Local storage for guest users
+- Supabase authentication for registered users
+- Markdown Edit / Raw / Preview modes
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React (Vite)
+- React Router v6
+- Tailwind CSS
+- Supabase Auth
+- Local Storage (guest mode)
+- Optional audio upload + external music links
+
+---
+
+## Color Palette
+
+#F8DADA  Background
+#F4EAF3  Soft Accent
+#2F3141  Primary Text
+#E6A5BD  Highlight
+#E8D3F7  Meditation Panel
+
+---
+
+## UI Previews (Coming Soon)
+
+Screenshots will be added for:
+
+- Home Page
+- Achievement Page
+- Meditation Timer
+- Mood Tracker
+
+---
+
+## Setup
+
+Create a `.env` file in the project root:
+
+VITE_SUPABASE_URL=your_url_here
+VITE_SUPABASE_ANON_KEY=your_key_here
+
+---
+
+Install and run:
+npm install
+npm run dev
+
+---
+
+## Contributors
+
+Developed by **The Knowledge House 2025 Web Development Cohort — Frontenders**  
+- Mya Walker  
+- Pauriany Segarra  
+- Dominique Bullard  
+- Elijah Reed  
+
+---
