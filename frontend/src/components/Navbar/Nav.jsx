@@ -1,10 +1,14 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import supabase from "../../supabaseClient";
+import { useAuth } from "../AuthContext";
 
 export default function Navbar() {
   const location = useLocation();
   const hideOnAuthPages = ["/login", "/signup"].includes(location.pathname);
+  const navigate = useNavigate();
+  const { user, isLoading } = useAuth();
+  const isLoggedIn = user && !isLoading;
 
   // ✅ Don't show navbar on login/signup pages
   if (hideOnAuthPages) return null;
@@ -48,26 +52,32 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/shop" className="hover:text-[#b87d7d] transition">
-            Shop
-          </Link>
+          {isLoggedIn ? (
+            <button onClick={logOutUser} 
+            className="mt-4 border border-red-500 bg-red-100 text-red-700 px-4 py-2 rounded-md hover:bg-red-200 transition">
+              Log Out</button>
+          ) : (
+            <>
+            <li>
+              <Link
+                to="/login"
+                className="bg-[#b87d7d]/80 text-white px-4 py-1 rounded-md hover:bg-[#a06d6d] transition"
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/signup"
+                className="border border-[#b87d7d] text-[#b87d7d] px-4 py-1 rounded-md hover:bg-[#b87d7d]/10 transition"
+              >
+                Signup
+              </Link>
+            </li>
+            </>
+          )}
         </li>
-        <li>
-          <Link
-            to="/login"
-            className="bg-[#b87d7d]/80 text-white px-4 py-1 rounded-md hover:bg-[#a06d6d] transition"
-          >
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/signup"
-            className="border border-[#b87d7d] text-[#b87d7d] px-4 py-1 rounded-md hover:bg-[#b87d7d]/10 transition"
-          >
-            Signup
-          </Link>
-        </li>
+        
       </ul>
     </nav>
   );
