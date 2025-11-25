@@ -8,6 +8,7 @@ import Shop from './pages/Shop.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import Moodtracker from './pages/Moodtracker.jsx';
+import Reminder from './pages/ReminderList.jsx';
 
 
 function App() {
@@ -24,10 +25,12 @@ function App() {
         <Route path='/login' element ={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/moodtracker' element={<Moodtracker />} />
+        <Route path='/reminderlist' element={<Reminder />} />
       </Routes>
     </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;
