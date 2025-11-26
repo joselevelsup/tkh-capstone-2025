@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#fefbfb] border-b border-[#e7d9d9] text-[#213547] font-serif">
-      <ul className="flex flex-row justify-center gap-10 py-4 text-lg font-semibold">
+      <ul className="flex flex-row justify-center items-center gap-10 py-4 text-lg font-semibold">
         <li>
           <img className="max-w-xs h-12" src=".\color-me-happy-icon.png" alt="Color Me Happy Icon" />
         </li>
@@ -61,22 +61,18 @@ export default function Navbar() {
               Log Out</button>
           ) : (
             <div className="flex justify-center align-middle gap-10 px-4 py-1 text-lg font-semibold">
-            <li>
               <Link
                 to="/login"
                 className="bg-[#b87d7d]/80 text-white px-4 py-1 rounded-md hover:bg-[#a06d6d] transition"
               >
                 Login
               </Link>
-            </li>
-            <li>
               <Link
                 to="/signup"
                 className="border border-[#b87d7d] text-[#b87d7d] px-4 py-1 rounded-md hover:bg-[#b87d7d]/10 transition"
               >
                 Signup
               </Link>
-            </li>
             </div>
           )}
         </li>
