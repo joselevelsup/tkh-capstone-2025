@@ -50,6 +50,11 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
+          <Link to="/reminder" className="hover:text-[#b87d7d] transition">
+            Reminder
+          </Link>
+        </li>
+        <li>
           <Link to="/achievement" className="hover:text-[#b87d7d] transition">
             Achievement
           </Link>
