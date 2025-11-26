@@ -1,28 +1,33 @@
 import React from "react";
-// import myaAvatar from "../assets/mya-avatar.png"; TESTING AVATAR - TBD
+import myaAvatar from "../assets/m-avatar.png";
+import dominiqueAvatar from "../assets/d-avatar.png"; 
+import ElijahAvatar from "../assets/e-avatar.png";
+import PaurianyAvatar from "../assets/p-avatar.png";
 
 export default function About() {
   const teamMembers= [
-    { name: "Dominique Bullard", avatar: null },
+    {name: "Dominique Bullard", 
+      avatar: dominiqueAvatar
+    },
     
     {
       name: "Mya Walker",
       linkedin: "https://www.linkedin.com/in/mya-walker/",
-      // avatar: myaAvatar,
+      avatar: myaAvatar,
     },
 
     {
       name: "Elijah Reed",
       email: "ejreed328@gmail.com",
       linkedin: "https://www.linkedin.com/in/elijah-reed-0b0b42351/",
-      avatar: null,
+      avatar: ElijahAvatar,
     },
     
     {
       name: "Pauriany Segarra",
       email: "pauriany@gmail.com",
       linkedin: "https://www.linkedin.com/in/pauriany",
-      avatar: null,
+      avatar: PaurianyAvatar,
     },
   ];
 
@@ -146,8 +151,8 @@ export default function About() {
             <div key={i} className="text-center flex flex-col items-center">
 
 
-{/* IF ADDING AVATAR - TBD */} 
-{/* {member.avatar && ( <div className="w-28 h-28 rounded-full overflow-hidden shadow-sm mb-3"> <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" /> </div> )} */}
+{/* add avatar 11/25 */} 
+{member.avatar && ( <div className="w-28 h-28 rounded-full overflow-hidden shadow-sm mb-3"> <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" /> </div> )}
 
        <p className="text-xl font-semibold text-[#141e13]">
         {member.name}

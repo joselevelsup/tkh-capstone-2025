@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Nav.jsx";
-import AuthProvider from './components/AuthContext.jsx';
+import AuthProvider from "./components/AuthContext.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Journal from "./pages/Journal.jsx";
@@ -9,16 +9,14 @@ import Shop from "./pages/Shop.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Moodtracker from "./pages/Moodtracker.jsx";
-import Reminder from "./pages/ReminderList.jsx";
 import MeditationTimerWidget from "./components/MeditationTimerWidget.jsx";
 
 function App() {
   return (
     <div>
-      <AuthProvider>
-        <BrowserRouter>
-        <Navbar />
-
+    <AuthProvider>
+      <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -28,13 +26,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/moodtracker" element={<Moodtracker />} />
-          <Route path="/reminderlist" element={<Reminder />} />
         </Routes>
-        <MeditationTimerWidget />
+      <MeditationTimerWidget />
       </BrowserRouter>
-      </AuthProvider>
+    </AuthProvider>
     </div>
   );
 }
-
 export default App;
