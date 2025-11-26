@@ -39,7 +39,7 @@ Built as part of The Knowledge House 2025 Capstone.
 <img width="1600" height="1200" alt="palette (5)" src="https://github.com/user-attachments/assets/7ff83b74-5027-4919-8c01-a70de4e0f167" />
 
 
-## Technologies 
+## Technologies / Credit
 ### Heroicons (Outline Set)
 Color Me Happy uses **Heroicons Outline** for UI icons such as the **question mark icon** (Home page) and the **open-book icon** (Sign-Up & Login pages).  
 Documentation & icons: https://heroicons.com/outline
@@ -51,6 +51,8 @@ Overtype provides Edit, Raw Markdown, and Preview modes for a smooth writing exp
 Documentation: https://overtype.dev  
 CDN Script used inside `index.html`:
 <script src="https://unpkg.com/overtype/dist/overtype.min.js"></script>
+### Team Avatars created by Dominique Bullard
+- Logo concept designed using AI-assisted tools.
 ---
 
 ## UI Previews
