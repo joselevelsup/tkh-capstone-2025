@@ -30,7 +30,10 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#fefbfb] border-b border-[#e7d9d9] text-[#213547] font-serif">
-      <ul className="flex justify-center gap-10 py-4 text-lg font-semibold">
+      <ul className="flex flex-row justify-center gap-10 py-4 text-lg font-semibold">
+        <li>
+          <img className="max-w-xs h-12" src=".\color-me-happy-icon.png" alt="Color Me Happy Icon" />
+        </li>
         <li>
           <Link to="/" className="hover:text-[#b87d7d] transition">
             Home
@@ -54,10 +57,10 @@ export default function Navbar() {
         <li>
           {isLoggedIn ? (
             <button onClick={logOutUser} 
-            className="mt-4 border border-red-500 bg-red-100 text-red-700 px-4 py-2 rounded-md hover:bg-red-200 transition">
+            className="border border-[#b87d7d] bg-rose-200 text-[#213547] px-4 py-1 rounded-md cursor-pointer hover:bg-[#FFA0AC] transition">
               Log Out</button>
           ) : (
-            <>
+            <div className="flex justify-center align-middle gap-10 px-4 py-1 text-lg font-semibold">
             <li>
               <Link
                 to="/login"
@@ -74,7 +77,7 @@ export default function Navbar() {
                 Signup
               </Link>
             </li>
-            </>
+            </div>
           )}
         </li>
         

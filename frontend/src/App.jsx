@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Nav.jsx';
+import AuthProvider from './components/AuthContext.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Journal from './pages/Journal.jsx';
@@ -14,8 +15,9 @@ import Reminder from './pages/ReminderList.jsx';
 function App() {
   return (
     <div>
-    <BrowserRouter>
-    <Navbar />
+    <AuthProvider>
+      <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -28,6 +30,7 @@ function App() {
         <Route path='/reminderlist' element={<Reminder />} />
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
     </div>
   );
 }
