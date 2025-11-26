@@ -40,12 +40,14 @@ Built as part of The Knowledge House 2025 Capstone.
 
 ## UI Previews (Coming Soon)
 
-Screenshots will be added for:
-
-- Home Page
-- Achievement Page
-- Meditation Timer
-- Mood Tracker
+![Home Page](public/home.png)
+![Sign Up Page](public/signup.png)
+![Login Page](public/login.png)
+![Guest Journal Page](public/guestjournal.png)
+![Journal One](public/journal1.png)
+![Reminders](public/reminders.png)
+![Meditation Timer](public/mediationtimer.png)
+![Achievement Page](public/achievement.png)
 
 ---
 
@@ -61,6 +63,7 @@ VITE_SUPABASE_ANON_KEY=your_key_here
 Install and run:
 npm install
 npm run dev
+npm install canvas-confetti
 
 ---
 
@@ -73,3 +76,8 @@ Developed by **The Knowledge House 2025 Web Development Cohort — Frontenders**
 - Elijah Reed  
 
 ---
+
+## Credits
+Icons used in this project are from [Heroicons](https://heroicons.com/), including:
+- Question Mark Icon on Home Page
+- Open Book Icon on Signup Page
