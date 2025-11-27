@@ -54,6 +54,51 @@ export default function Moodtracker() {
 
     loadMood();
   }, [today]);
+const [userId, setUserId] = useState(null);
+
+useEffect(() => {
+  supabase.auth.getUser().then(({ data }) => {
+    setUserId(data.user ? data.user.id : null);
+  });
+}, []);
+
+useEffect(() => {
+  if (!userId) return;
+
+  const loadMood = async () => {
+    const { data, error } = await supabase
+      .from("moods")
+      .select("*")
+      .eq("date", today)
+      .eq("user_id", userId)
+      .single();
+
+    if (data) {
+      setSelectedMood(data.mood);
+      setNote(data.note || "");
+      setTodayMood(data.mood);
+      document.body.classList.add(data.mood);
+    }
+  };
+
+  loadMood();
+}, [userId, today]);
+
+useEffect(() => {
+  if (!userId) return;
+
+  const loadPastMoods = async () => {
+    const { data, error } = await supabase
+      .from("mood")
+      .select("*")
+      .eq("user_id", userId)
+      .order("date", { ascending: false });
+
+    setPastMoods(data || []);
+  };
+
+  loadPastMoods();
+}, [userId, saveMessage]);
 
   useEffect(() => {
     const loadPastMoods = async () => {
@@ -74,6 +119,7 @@ export default function Moodtracker() {
   }, [saveMessage]); // reload when a new entry is saved
 
   
+  
   useEffect(() => {
     const moodBody = document.querySelector('.mood-body');
     if(moodBody){
@@ -88,9 +134,15 @@ export default function Moodtracker() {
     return;
   }
 
+  if (!userId) {
+    alert("You must be logged in to save moods.");
+    return;
+  }
+
   const { data, error } = await supabase
     .from("mood")
     .upsert({
+      user_id: userId,
       date: today,
       mood: selectedMood,
       note,
@@ -105,6 +157,7 @@ export default function Moodtracker() {
   setTodayMood(selectedMood);
   setSaveMessage("Your mood has been saved!");
 };
+
 
 
   // Auto-hide save message

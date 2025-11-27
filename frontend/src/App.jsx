@@ -10,6 +10,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Moodtracker from "./pages/Moodtracker.jsx";
 import MeditationTimerWidget from "./components/MeditationTimerWidget.jsx";
+import Reminder from "./pages/ReminderList.jsx";
 
 function App() {
   return (
@@ -22,17 +23,15 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/achievement" element={<Achievement />} />
-          <Route path="/shop" element={<Shop />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/moodtracker" element={<Moodtracker />} />
+          <Route path="/reminder" element={<Reminder />} />
         </Routes>
-
-      <MeditationTimerWidget />  
+      <MeditationTimerWidget />
       </BrowserRouter>
     </AuthProvider>
     </div>
   );
 }
-
 export default App;
