@@ -1,6 +1,6 @@
 import React from "react";
 import myaAvatar from "../assets/m-avatar.png";
-import dominiqueAvatar from "../assets/d-avatar.png"; 
+import dominiqueAvatar from "../assets/d-avatar.png";
 import ElijahAvatar from "../assets/e-avatar.png";
 import PaurianyAvatar from "../assets/p-avatar.png";
 
