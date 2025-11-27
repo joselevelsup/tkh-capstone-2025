@@ -1,33 +1,29 @@
 import React from "react";
-import myaAvatar from "../assets/m-avatar.png";
-import dominiqueAvatar from "../assets/d-avatar.png";
-import ElijahAvatar from "../assets/e-avatar.png";
-import PaurianyAvatar from "../assets/p-avatar.png";
 
 export default function About() {
   const teamMembers= [
     {name: "Dominique Bullard", 
-      avatar: dominiqueAvatar
+      avatar: "d-avatar.png"
     },
     
     {
       name: "Mya Walker",
       linkedin: "https://www.linkedin.com/in/mya-walker/",
-      avatar: myaAvatar,
+      avatar: "m-avatar.png",
     },
 
     {
       name: "Elijah Reed",
       email: "ejreed328@gmail.com",
       linkedin: "https://www.linkedin.com/in/elijah-reed-0b0b42351/",
-      avatar: ElijahAvatar,
+      avatar: "e-avatar.png",
     },
     
     {
       name: "Pauriany Segarra",
       email: "pauriany@gmail.com",
       linkedin: "https://www.linkedin.com/in/pauriany",
-      avatar: PaurianyAvatar,
+      avatar: "p-avatar.png",
     },
   ];
 
